@@ -15,7 +15,7 @@ body {
 }
 
 .content-container {
-    max-width: 70vw;
+    /* max-width: 70vw; */
     background-color: var(--3rd-color);
     padding: 1.5rem;
     margin: 2rem auto;
@@ -88,4 +88,39 @@ button[type="submit"]:hover {
 
 input[type='checkbox'] {
     transform: scale(1.5);
+}
+
+.library-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.row-details {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: subgrid;
+}
+
+.row-details h3 {
+    font-size: 1.2rem;
+    border-bottom: 1px solid black;
+    padding-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.book-container {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: subgrid;
+}
+
+.book {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: subgrid;
+}
+
+.book p {
+
 }
