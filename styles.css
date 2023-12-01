@@ -3,7 +3,7 @@
 }
 
 html {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: cursive, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     --main-color: rgb(184, 218, 243);
     --sub-color: rgb(238, 231, 217);
     --3rd-color: rgb(246, 245, 245);
@@ -39,7 +39,8 @@ body {
 
 .title-container h1 {
     font-size: 3rem;
-    font-weight: 600;
+    /* font-weight: 600; */
+    font-family: 'Pacifico', cursive;
 }
 
 form {

@@ -30,6 +30,7 @@ function addBookToLibrary(event) {
     // console.log(myLibrary);
 
     updateLibraryDisplay();
+    clearInputFields();
 }
 
 function updateLibraryDisplay() {
@@ -87,4 +88,11 @@ function displayLibrary() {
 
     libraryContainer.appendChild(bookContainer);
       
+}
+
+function clearInputFields() {
+    const bookInputs = document.querySelectorAll("input");
+    bookInputs.forEach((e) => {
+        e.value = "";
+    })
 }
