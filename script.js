@@ -61,11 +61,11 @@ function updateLibraryDisplay() {
 
 function displayLibrary() {
     const libraryContainer = document.querySelector(".library-container");
-    const bookContainer = document.createElement("div");
+    const bookContainer = document.createElement("ul");
     bookContainer.classList.add("book-container");
 
     myLibrary.forEach((book) => {
-        let specificBook = document.createElement("div");
+        let specificBook = document.createElement("li");
         specificBook.classList.add("book");
         for(let property in book)
         {
