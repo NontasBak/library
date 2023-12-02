@@ -47,16 +47,14 @@ function updateLibraryDisplay() {
             continue;
         
         let bookInfo = document.createElement("p");
-        if(!(property === "read")) {
+        if(!(property === "read"))
             bookInfo.textContent = lastBookInLibrary[property];
-        }
-        else {
+        else
             bookInfo.textContent = lastBookInLibrary[property] ? "read" : "not read";
-        }
 
         lastBook.appendChild(bookInfo);
     }
-
+    removeButton = createRemoveButton(lastBook);
     bookContainer.appendChild(lastBook);
 }
 
@@ -75,19 +73,17 @@ function displayLibrary() {
                 continue;
             
             let bookInfo = document.createElement("p");
-            if(!(property === "read")) {
+            if(!(property === "read"))
                 bookInfo.textContent = book[property];
-            }
-            else {
+            else
                 bookInfo.textContent = book[property] ? "read" : "not read";
-            }
 
             specificBook.appendChild(bookInfo);
         }
-        
+        removeButton = createRemoveButton(specificBook);
         bookContainer.appendChild(specificBook);
     })
-
+    
     libraryContainer.appendChild(bookContainer);
       
 }
@@ -97,4 +93,22 @@ function clearInputFields() {
     bookInputs.forEach((e) => {
         e.value = "";
     })
+}
+
+function createRemoveButton(book) {
+    let removeButton = document.createElement("button");
+    removeButton.classList.add("remove-button");
+    removeButton.textContent = "Remove";
+
+    removeButton.addEventListener("click", removeBook);
+
+    book.appendChild(removeButton);
+}
+
+function removeBook(e) {
+    let book = e.target.parentElement;
+    let bookIndex = book.dataset.arrayIndex;
+    book.remove();
+
+    delete myLibrary[bookIndex];
 }
