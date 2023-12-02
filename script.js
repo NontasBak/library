@@ -35,8 +35,9 @@ function addBookToLibrary(event) {
 
 function updateLibraryDisplay() {
     const bookContainer = document.querySelector(".book-container");
-    let lastBook = document.createElement("div");
+    let lastBook = document.createElement("li");
     lastBook.classList.add("book");
+    lastBook.dataset.arrayIndex = myLibrary.length - 1;
     let lastBookInLibrary = myLibrary[myLibrary.length - 1];
     console.log(lastBookInLibrary);
 
@@ -64,9 +65,10 @@ function displayLibrary() {
     const bookContainer = document.createElement("ul");
     bookContainer.classList.add("book-container");
 
-    myLibrary.forEach((book) => {
+    myLibrary.forEach((book, index) => {
         let specificBook = document.createElement("li");
         specificBook.classList.add("book");
+        specificBook.dataset.arrayIndex = index;
         for(let property in book)
         {
             if(property === "info")

@@ -31,7 +31,7 @@ body {
     display: flex;
     justify-content: center;
     background-color: var(--main-color);
-    width: min(90vw, 900px);
+    width: min(90vw, 1000px);
     margin: 0rem auto;
     padding: 1rem;
     border-radius: 1rem;
@@ -43,7 +43,7 @@ body {
 }
 
 form {
-    width: min(90vw, 900px);
+    width: min(90vw, 1000px);
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
@@ -93,7 +93,7 @@ input[type='checkbox'] {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
-    width: min(90vw, 900px);
+    width: min(90vw, 1000px);
 }
 
 .row-details {
