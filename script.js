@@ -12,12 +12,12 @@ Book.prototype.info = function() {
 // let newBook = new Book("bla", "blabla", 200, true);
 // console.log(newBook.info());
 
-const defaultLibrary = [new Book("1-1", "1-2", "1-3", true), new Book("2-1", "2-2", "2-3", false), new Book("3-1", "3-2", "3-3", true)];
+const defaultLibrary = [new Book("Things fall apart", "Chinua Achebe", "224", true), new Book("Pride and prejudice", "Jane Austen", "432", false), new Book("The kite runner", "Khaled Hosseini", "400", true)];
 
-let myLibrary = [new Book("1-1", "1-2", "1-3", true), new Book("2-1", "2-2", "2-3", false), new Book("3-1", "3-2", "3-3", true)];
-console.log(myLibrary)
+//for testing purposes
+let myLibrary = [new Book("Things fall apart", "Chinua Achebe", "224", true), new Book("Pride and prejudice", "Jane Austen", "432", false), new Book("The kite runner", "Khaled Hosseini", "400", true)];
+
 displayLibrary();
-
 const form = document.querySelector("form");
 form.addEventListener("submit", addBookToLibrary);
 
@@ -27,7 +27,6 @@ function addBookToLibrary(event) {
     event.preventDefault();
     const bookInputs = document.querySelectorAll("input");
     myLibrary.push(new Book(bookInputs[0].value, bookInputs[1].value, bookInputs[2].value, bookInputs[3].checked));
-    // console.log(myLibrary);
 
     updateLibraryDisplay();
     clearInputFields();
