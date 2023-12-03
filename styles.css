@@ -91,7 +91,7 @@ input[type='checkbox'] {
 
 .library-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr) 0.5fr;
+    grid-template-columns: repeat(2, 1fr) 0.5fr repeat(2, min-content);
     gap: 10px;
     width: min(90vw, 1000px);
 }
@@ -131,16 +131,26 @@ input[type='checkbox'] {
     overflow: hidden;
 }
 
-.remove-button {
-    background-color: rgb(205, 58, 58);
-    color: white;
+.remove-button, .status-button {
     border-radius: 2rem;
-    height: 30px;
     align-self: center;
     font-weight: 700;
     padding: 0.5em 1em;
 }
 
+.remove-button {
+    color: white;
+    background-color: rgb(205, 58, 58);
+}
+
 .remove-button:hover {
     background-color: rgb(145, 39, 39);
+}
+
+.status-button {
+    background-color: white;
+    width: 100px;
+}
+.status-button:hover {
+    background-color: rgb(228, 228, 228);
 }

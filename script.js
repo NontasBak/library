@@ -39,22 +39,20 @@ function updateLibraryDisplay() {
     lastBook.classList.add("book");
     lastBook.dataset.arrayIndex = myLibrary.length - 1;
     let lastBookInLibrary = myLibrary[myLibrary.length - 1];
-    console.log(lastBookInLibrary);
+    // console.log(lastBookInLibrary);
 
     for(let property in lastBookInLibrary)
     {
-        if(property === "info")
-            continue;
+        if(property === "info" || property === "read")
+            break;
         
         let bookInfo = document.createElement("p");
-        if(!(property === "read"))
-            bookInfo.textContent = lastBookInLibrary[property];
-        else
-            bookInfo.textContent = lastBookInLibrary[property] ? "read" : "not read";
+        bookInfo.textContent = lastBookInLibrary[property];
 
         lastBook.appendChild(bookInfo);
     }
-    removeButton = createRemoveButton(lastBook);
+    createStatusButton(lastBook, myLibrary[myLibrary.length - 1]);
+    createRemoveButton(lastBook);
     bookContainer.appendChild(lastBook);
 }
 
@@ -69,18 +67,17 @@ function displayLibrary() {
         specificBook.dataset.arrayIndex = index;
         for(let property in book)
         {
-            if(property === "info")
-                continue;
+            if(property === "info" || property === "read")
+                break;
             
             let bookInfo = document.createElement("p");
-            if(!(property === "read"))
-                bookInfo.textContent = book[property];
-            else
-                bookInfo.textContent = book[property] ? "read" : "not read";
+            bookInfo.textContent = book[property];
 
             specificBook.appendChild(bookInfo);
         }
-        removeButton = createRemoveButton(specificBook);
+
+        createStatusButton(specificBook, book);
+        createRemoveButton(specificBook);
         bookContainer.appendChild(specificBook);
     })
     
@@ -95,14 +92,14 @@ function clearInputFields() {
     })
 }
 
-function createRemoveButton(book) {
+function createRemoveButton(DOMbook) {
     let removeButton = document.createElement("button");
     removeButton.classList.add("remove-button");
     removeButton.textContent = "Remove";
 
     removeButton.addEventListener("click", removeBook);
 
-    book.appendChild(removeButton);
+    DOMbook.appendChild(removeButton);
 }
 
 function removeBook(e) {
@@ -111,4 +108,23 @@ function removeBook(e) {
     book.remove();
 
     delete myLibrary[bookIndex];
+}
+
+function createStatusButton(DOMbook, arrayBook) {
+    let statusButton = document.createElement("button");
+    statusButton.classList.add("status-button");
+    statusButton.textContent = arrayBook["read"] ? "read" : "not read";
+
+    statusButton.addEventListener("click", changeStatus);
+
+    DOMbook.appendChild(statusButton);
+}
+function changeStatus(e) {
+    let book = e.target.parentElement;
+    let bookIndex = book.dataset.arrayIndex;
+    let boolStatus = (e.target.textContent === "read");
+
+    //Change status
+    myLibrary[bookIndex].read = !boolStatus;
+    e.target.textContent = boolStatus ? "not read" : "read";
 }
